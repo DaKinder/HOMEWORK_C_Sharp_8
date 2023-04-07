@@ -207,19 +207,19 @@ Processor(result,rows1,rows2,columns1,columns2);
 
 /*
 
-int[,,] Create3DArray(int height, int width, int depth)
+int[,,] Create3DArray(int depth, int height, int width)
 {
-    int[,,] arr3D = new int[height, width, depth];
+    int[,,] arr3D = new int[depth, height, width];
 
-    for (int k = 0, num = 0; k < arr3D.GetLength(0); k++)
-        for (int i = 0; i < arr3D.GetLength(1); i++)
-            for (int j = 0; j < arr3D.GetLength(2); j++)
+    for (int k = 0, num = 0; k < arr3D.GetLength(2); k++)
+        for (int i = 0; i < arr3D.GetLength(0); i++)
+            for (int j = 0; j < arr3D.GetLength(1); j++)
                 while (true)
                 {
                     bool isUnique = CheckNumber(arr3D, num = new Random().Next(10, 100));
                     if (isUnique)
                     {
-                        arr3D[i, j, k] = num;
+                        arr3D[k, i, j] = num;
                         break;
                     }  
                 }
@@ -227,10 +227,10 @@ int[,,] Create3DArray(int height, int width, int depth)
 }
 bool CheckNumber(int[,,] arr, int num)
 {
-    for (int k = 0; k < arr.GetLength(0); k++)
-        for (int i = 0; i < arr.GetLength(1); i++)
-            for (int j = 0; j < arr.GetLength(2); j++)
-                if (arr[i, j, k] != num) return true;
+    for (int k = 0; k < arr.GetLength(2); k++)
+        for (int i = 0; i < arr.GetLength(0); i++)
+            for (int j = 0; j < arr.GetLength(1); j++)
+                if (arr[k, i, j] != num) return true;
     return false;
 }
 
@@ -243,7 +243,7 @@ void Print3DArray(int[,,] arr)
         for (int i = 0; i < arr.GetLength(1); i++)
         {
             for (int j = 0; j < arr.GetLength(2); j++)
-                Console.Write($"|{arr[i, j, k]}|");
+                Console.Write($"|{arr[k, i, j]}|");
             Console.WriteLine();
         }
         Console.WriteLine();
