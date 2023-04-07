@@ -205,7 +205,7 @@ Processor(result,rows1,rows2,columns1,columns2);
 //Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу,
 //которая будет построчно выводить массив, добавляя индексы каждого элемента.
 
-/*
+
 
 int[,,] Create3DArray(int height, int width, int depth)
 {
@@ -230,8 +230,8 @@ bool CheckNumber(int[,,] arr, int num)
     for (int i = 0; i < arr.GetLength(0); i++)
         for (int j = 0; j < arr.GetLength(1); j++)
             for (int k = 0; k < arr.GetLength(2); k++)
-                if (arr[i, j, k] != num) return true;
-    return false;
+                if (arr[i, j, k] == num) return false;
+    return true;
 }
 
 void Print3DArray(int[,,] arr)
@@ -271,7 +271,7 @@ while (true)
     else Console.WriteLine("Превышен допустимый размер массива...");
 }
 
-*/
+
 
 //Напишите программу, которая заполнит спирально массив 4 на 4.
 
