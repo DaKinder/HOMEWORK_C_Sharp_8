@@ -211,15 +211,15 @@ int[,,] Create3DArray(int depth, int height, int width)
 {
     int[,,] arr3D = new int[depth, height, width];
 
-    for (int k = 0, num = 0; k < arr3D.GetLength(0); k++)
-        for (int i = 0; i < arr3D.GetLength(1); i++)
-            for (int j = 0; j < arr3D.GetLength(2); j++)
+    for (int i = 0, num = 0; i < arr3D.GetLength(0); i++)
+        for (int j = 0; j < arr3D.GetLength(1); j++)
+            for (int k = 0; k < arr3D.GetLength(2); k++)
                 while (true)
                 {
                     bool isUnique = CheckNumber(arr3D, num = new Random().Next(10, 100));
                     if (isUnique)
                     {
-                        arr3D[k, i, j] = num;
+                        arr3D[i, j, k] = num;
                         break;
                     }  
                 }
@@ -227,23 +227,23 @@ int[,,] Create3DArray(int depth, int height, int width)
 }
 bool CheckNumber(int[,,] arr, int num)
 {
-    for (int k = 0; k < arr.GetLength(0); k++)
-        for (int i = 0; i < arr.GetLength(1); i++)
-            for (int j = 0; j < arr.GetLength(2); j++)
-                if (arr[k, i, j] != num) return true;
+    for (int i = 0; i < arr.GetLength(0); i++)
+        for (int j = 0; j < arr.GetLength(1); j++)
+            for (int k = 0; k < arr.GetLength(2); k++)
+                if (arr[i, j, k] != num) return true;
     return false;
 }
 
 void Print3DArray(int[,,] arr)
 {
-    for (int k = 0; k < arr.GetLength(0); k++)
+    for (int i = 0; i < arr.GetLength(0); i++)
     {
-        Console.WriteLine($"Слой № {k}");
+        Console.WriteLine($"Слой № {i}");
         System.Console.WriteLine();
-        for (int i = 0; i < arr.GetLength(1); i++)
+        for (int j = 0; j < arr.GetLength(1); j++)
         {
-            for (int j = 0; j < arr.GetLength(2); j++)
-                Console.Write($"|{arr[k, i, j]}|");
+            for (int k = 0; k < arr.GetLength(2); k++)
+                Console.Write($"|{arr[i, j, k]}|");
             Console.WriteLine();
         }
         Console.WriteLine();
