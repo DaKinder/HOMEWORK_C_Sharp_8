@@ -207,9 +207,9 @@ Processor(result,rows1,rows2,columns1,columns2);
 
 
 
-int[,,] Create3DArray(int height, int width, int depth)
+int[,,] Create3DArray(int depth, int height, int width)
 {
-    int[,,] arr3D = new int[height, width, depth];
+    int[,,] arr3D = new int[depth, height, width];
 
     for (int i = 0, num = 0; i < arr3D.GetLength(0); i++)
         for (int j = 0; j < arr3D.GetLength(1); j++)
@@ -236,16 +236,15 @@ bool CheckNumber(int[,,] arr, int num)
 
 void Print3DArray(int[,,] arr)
 {
-    int layer = 1;
-    for (int i = 0; i < arr.GetLength(0); i++, layer++)
+    for (int i = 0; i < arr.GetLength(0); i++)
     {
-        Console.WriteLine($"Слой № {layer}");
+        Console.WriteLine($"Слой № {i}");
         System.Console.WriteLine();
         for (int j = 0; j < arr.GetLength(1); j++)
         {
             for (int k = 0; k < arr.GetLength(2); k++)
                 Console.Write($"|{arr[i, j, k]}|");
-            Console.WriteLine("  ");
+            Console.WriteLine();
         }
         Console.WriteLine();
     }
@@ -265,7 +264,7 @@ while (true)
 
     if (height * width * depth < 90)
     {
-        int[,,] array3D =  Create3DArray(height, width, depth);
+        int[,,] array3D =  Create3DArray(depth, height, width);
         Print3DArray(array3D); break;
     }
     else Console.WriteLine("Превышен допустимый размер массива...");
