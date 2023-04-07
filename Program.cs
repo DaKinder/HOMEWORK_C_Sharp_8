@@ -211,9 +211,9 @@ int[,,] Create3DArray(int depth, int height, int width)
 {
     int[,,] arr3D = new int[depth, height, width];
 
-    for (int k = 0, num = 0; k < arr3D.GetLength(2); k++)
-        for (int i = 0; i < arr3D.GetLength(0); i++)
-            for (int j = 0; j < arr3D.GetLength(1); j++)
+    for (int k = 0, num = 0; k < arr3D.GetLength(0); k++)
+        for (int i = 0; i < arr3D.GetLength(1); i++)
+            for (int j = 0; j < arr3D.GetLength(2); j++)
                 while (true)
                 {
                     bool isUnique = CheckNumber(arr3D, num = new Random().Next(10, 100));
@@ -227,22 +227,22 @@ int[,,] Create3DArray(int depth, int height, int width)
 }
 bool CheckNumber(int[,,] arr, int num)
 {
-    for (int k = 0; k < arr.GetLength(2); k++)
-        for (int i = 0; i < arr.GetLength(0); i++)
-            for (int j = 0; j < arr.GetLength(1); j++)
+    for (int k = 0; k < arr.GetLength(0); k++)
+        for (int i = 0; i < arr.GetLength(1); i++)
+            for (int j = 0; j < arr.GetLength(2); j++)
                 if (arr[k, i, j] != num) return true;
     return false;
 }
 
 void Print3DArray(int[,,] arr)
 {
-    for (int k = 0; k < arr.GetLength(2); k++)
+    for (int k = 0; k < arr.GetLength(0); k++)
     {
         Console.WriteLine($"Слой № {k}");
         System.Console.WriteLine();
-        for (int i = 0; i < arr.GetLength(0); i++)
+        for (int i = 0; i < arr.GetLength(1); i++)
         {
-            for (int j = 0; j < arr.GetLength(1); j++)
+            for (int j = 0; j < arr.GetLength(2); j++)
                 Console.Write($"|{arr[k, i, j]}|");
             Console.WriteLine();
         }
