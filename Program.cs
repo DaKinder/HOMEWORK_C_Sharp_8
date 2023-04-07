@@ -211,9 +211,9 @@ int[,,] Create3DArray(int height, int width, int depth)
 {
     int[,,] arr3D = new int[height, width, depth];
 
-    for (int i = 0, num = 0; i < arr3D.GetLength(0); i++)
-        for (int j = 0; j < arr3D.GetLength(1); j++)
-            for (int k = 0; k < arr3D.GetLength(2); k++)
+    for (int k = 0, num = 0; k < arr3D.GetLength(0); k++)
+        for (int i = 0; i < arr3D.GetLength(1); i++)
+            for (int j = 0; j < arr3D.GetLength(2); j++)
                 while (true)
                 {
                     bool isUnique = CheckNumber(arr3D, num = new Random().Next(10, 100));
@@ -244,7 +244,7 @@ void Print3DArray(int[,,] arr)
         {
             for (int j = 0; j < arr.GetLength(2); j++)
                 Console.Write($"|{arr[i, j, k]}|");
-            Console.WriteLine("  ");
+            Console.WriteLine();
         }
         Console.WriteLine();
     }
