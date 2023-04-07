@@ -227,23 +227,22 @@ int[,,] Create3DArray(int height, int width, int depth)
 }
 bool CheckNumber(int[,,] arr, int num)
 {
-    for (int i = 0; i < arr.GetLength(0); i++)
-        for (int j = 0; j < arr.GetLength(1); j++)
-            for (int k = 0; k < arr.GetLength(2); k++)
+    for (int k = 0; k < arr.GetLength(0); k++)
+        for (int i = 0; i < arr.GetLength(1); i++)
+            for (int j = 0; j < arr.GetLength(2); j++)
                 if (arr[i, j, k] != num) return true;
     return false;
 }
 
 void Print3DArray(int[,,] arr)
 {
-    int layer = 1;
-    for (int i = 0; i < arr.GetLength(0); i++, layer++)
+    for (int k = 0; k < arr.GetLength(0); k++)
     {
-        Console.WriteLine($"Слой № {layer}");
+        Console.WriteLine($"Слой № {k}");
         System.Console.WriteLine();
-        for (int j = 0; j < arr.GetLength(1); j++)
+        for (int i = 0; i < arr.GetLength(1); i++)
         {
-            for (int k = 0; k < arr.GetLength(2); k++)
+            for (int j = 0; j < arr.GetLength(2); j++)
                 Console.Write($"|{arr[i, j, k]}|");
             Console.WriteLine("  ");
         }
