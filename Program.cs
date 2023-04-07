@@ -215,7 +215,7 @@ int[,,] Create3DArray(int depth, int height, int width)
         for (int j = 0; j < arr3D.GetLength(1); j++)
             for (int k = 0; k < arr3D.GetLength(2); k++)
                 if (CheckNumber(arr3D, num = new Random().Next(10, 100))) arr3D[i, j, k] = num;
-                else k--;
+                    else k--;
     return arr3D;
 }
 bool CheckNumber(int[,,] arr, int num)
@@ -231,7 +231,7 @@ void Print3DArray(int[,,] arr)
 {
     for (int i = 0; i < arr.GetLength(0); i++)
     {
-        Console.WriteLine($"Слой № {i}");
+        Console.WriteLine($"Слой № {i+1}");
         System.Console.WriteLine();
         for (int j = 0; j < arr.GetLength(1); j++)
         {
