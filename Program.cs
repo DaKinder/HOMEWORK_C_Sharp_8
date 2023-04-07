@@ -217,7 +217,11 @@ int[,,] Create3DArray(int height, int width, int depth)
                 while (true)
                 {
                     bool isUnique = CheckNumber(arr3D, num = new Random().Next(10, 100));
-                    if (isUnique) arr3D[i, j, k] = num; break;
+                    if (isUnique)
+                    {
+                        arr3D[i, j, k] = num;
+                        break;
+                    }  
                 }
     return arr3D;
 }
@@ -261,8 +265,8 @@ while (true)
 
     if (height * width * depth < 90)
     {
-        int[,,] array3D = Create3dArray(height, width, depth);
-        Print3dArray(array3D); break;
+        int[,,] array3D =  Create3DArray(height, width, depth);
+        Print3DArray(array3D); break;
     }
     else Console.WriteLine("Превышен допустимый размер массива...");
 }
