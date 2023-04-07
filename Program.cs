@@ -264,7 +264,7 @@ while (true)
 
     if (height * width * depth < 90)
     {
-        int[,,] array3D =  Create3DArray(height, width, depth);
+        int[,,] array3D =  Create3DArray(depth, height, width);
         Print3DArray(array3D); break;
     }
     else Console.WriteLine("Превышен допустимый размер массива...");
