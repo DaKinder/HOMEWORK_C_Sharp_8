@@ -236,13 +236,13 @@ bool CheckNumber(int[,,] arr, int num)
 
 void Print3DArray(int[,,] arr)
 {
-    for (int k = 0; k < arr.GetLength(0); k++)
+    for (int k = 0; k < arr.GetLength(2); k++)
     {
         Console.WriteLine($"Слой № {k}");
         System.Console.WriteLine();
-        for (int i = 0; i < arr.GetLength(1); i++)
+        for (int i = 0; i < arr.GetLength(0); i++)
         {
-            for (int j = 0; j < arr.GetLength(2); j++)
+            for (int j = 0; j < arr.GetLength(1); j++)
                 Console.Write($"|{arr[k, i, j]}|");
             Console.WriteLine();
         }
